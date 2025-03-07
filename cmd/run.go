@@ -134,7 +134,7 @@ func Run(log *logrus.Logger, conf *config.Config, externGeoDataDirs []string) (e
 
 	var pprofServer *http.Server
 	if conf.Global.PprofPort != 0 {
-		pprofAddr := fmt.Sprintf("localhost:%d", conf.Global.PprofPort)
+		pprofAddr := fmt.Sprintf("%s:%d", conf.Global.PprofHost, conf.Global.PprofPort)
 		pprofServer = &http.Server{Addr: pprofAddr, Handler: nil}
 		go pprofServer.ListenAndServe()
 	}
@@ -300,7 +300,7 @@ loop:
 				pprofServer = nil
 			}
 			if newConf.Global.PprofPort != 0 {
-				pprofAddr := fmt.Sprintf("localhost:%d", conf.Global.PprofPort)
+				pprofAddr := fmt.Sprintf("%s:%d", conf.Global.PprofHost, conf.Global.PprofPort)
 				pprofServer = &http.Server{Addr: pprofAddr, Handler: nil}
 				go pprofServer.ListenAndServe()
 			}

@@ -42,6 +42,7 @@ type Global struct {
 	TlsImplementation      string        `mapstructure:"tls_implementation" default:"tls"`
 	UtlsImitate            string        `mapstructure:"utls_imitate" default:"chrome_auto"`
 	PprofPort              uint16        `mapstructure:"pprof_port" default:"0"`
+	PprofHost              string        `mapstructure:"pprof_host" default:"localhost"`
 	Mptcp                  bool          `mapstructure:"mptcp" default:"false"`
 	BandwidthMaxTx         string        `mapstructure:"bandwidth_max_tx" default:"0"`
 	BandwidthMaxRx         string        `mapstructure:"bandwidth_max_rx" default:"0"`
